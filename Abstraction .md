@@ -1,73 +1,50 @@
 
-# 🐍 Python OOP: Abstract Class & Method Example
+# 🐍 Python OOP: Encapsulation with Private Members
 
 ## 🎯 AIM
 
-To create an **abstract class** named `Shape` with an **abstract method** `calculate_area`, and implement this method in two subclasses: `Rectangle` and `Circle`.
+To implement **Encapsulation** in Python by defining a class `Rectangle` with **private member variables** `__length` and `__breadth`.
 
 ---
 
 ## 🧠 ALGORITHM
 
-1. **Import ABC module**:
-   - Use `from abc import ABC, abstractmethod` to define abstract classes and methods.
+1. **Define the Class**:
+   - Create a class `Rectangle` with two private attributes: `__length` and `__breadth`.
 
-2. **Create Abstract Class `Shape`**:
-   - Define an abstract method `calculate_area()` with `@abstractmethod`.
+2. **Initialize Variables**:
+   - Use the `__init__()` constructor to set initial values for `__length` and `__breadth`.
 
-3. **Create Subclass `Rectangle`**:
-   - Set default values for `length` and `breadth`.
-   - Override `calculate_area()` to compute the rectangle area.
+3. **Print Values**:
+   - Display the private variables from within the class to demonstrate access.
 
-4. **Create Subclass `Circle`**:
-   - Set default value for `radius`.
-   - Override `calculate_area()` to compute the circle area.
-
-5. **Create Objects & Call Methods**:
-   - Instantiate `Rectangle` and `Circle`.
-   - Call their `calculate_area()` methods.
+4. **Instantiate the Object**:
+   - Create an object of the `Rectangle` class to trigger the constructor.
 
 ---
 
 ## 💻 Program
-```py
-from abc import ABC
-class type_shape(ABC): 
-    def area(self):
-        pass
+```
+class Rectangle:
+    def __init__(self, length, width):
+        self.__length = length  # Private variable
+        self.__width = width    # Private variable
+    
+    # Method to print private variables
+    def print_values(self):
+        print(self.__length)
+        print(self.__width)
 
-class Rectangle(type_shape):
-    length = 6
-    breadth = 4
-    def area(self):
-        return self.length * self.breadth
+# Create an object of Rectangle class
+rect = Rectangle(5, 3)
 
-class Circle(type_shape):
-    radius = 7
-    def area(self):
-        return 3.14*self.radius**2
-class Square(type_shape):
-    length = 4
-    def area(self):
-        return self.length**2
+# Print private values using the method within the class
+rect.print_values()
 
-class triangle(type_shape):
-    length = 5
-    width = 4
-    def area(self):
-        return 0.5*self.length*self.width
-  
-r = Rectangle()
-c = Circle() 
-s = Square() 
-t = triangle() 
-print("Area of a rectangle:", r.area())
-print("Area of a circle:", c.area()) 
-print("Area of a square:", s.area()) 
-print("Area of a triangle:", t.area()) 
+# Attempt to print private values outside the class (will raise an AttributeError)
 ```
 ## Output
-<img width="727" height="269" alt="image" src="https://github.com/user-attachments/assets/4c5574a3-c19a-4c91-9705-49d9140a06a9" />
+<img width="800" height="251" alt="image" src="https://github.com/user-attachments/assets/345664f6-0c06-4329-83ac-06b794f48aa2" />
 
 ## Result
-Thus the program to create an abstract class named Shape with an abstract method calculate_area, and implement this method in two subclasses: Rectangle and Circle is executed successfully.
+Thus, the program is executed successfully
